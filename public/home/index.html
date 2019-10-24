@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/jquery/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1>这是首页</h1>
+    <h3>在这里登陆</h3>
+    <p>如果是登录成功的状态 则显示退出登录按键</p>
+    <a href="../admin/login.html">登录</a>
+    <button class="logout">退出</button>
+    <script>
+   $('.logout').on('click',function () {
+       $.ajax({
+           type:'get',
+           url:'/home/logout',
+           success:function(){
+               location.href='../admin/login.html';
+           }
+       })
+   })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="../lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="../lib/jquery/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h1>在这里输入账号登录 可以转到注册</h1>
+    <a href="../home">回到首页</a>
+
+    <form id="loginform">
+        <div class="form-group">
+            <label for="username">username </label>
+            <input type="text" class="form-control" id="username" placeholder="username" name='username'>
+        </div>
+        <div class="form-group">
+            <label for="Password">密码</label>
+            <input type="password" class="form-control" id="Password" placeholder="密码" name='password'>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> 记住我
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">登录</button>
+    </form>
+    <br>
+    <a href="../home/register.html">注册</a>
+   
+
+    <script>
+        
+        
+        //登录
+        $('#loginform').on('submit', function () {
+            $.ajax({
+                type: 'post',
+                url: '/admin/login',
+                data: $(this).serialize(),
+                success: function (res) {
+                    console.log('登录成功');
+                    location.href='../home/index.html';
+                }
+            })
+            return false;
+        });
+        //退出
+        // $('.logout').on('click', function () {
+        //     $.ajax({
+        //         type: 'get',
+        //         url: '/admin/logout',
+        //         success: function (res) {
+        //             console.log('退出成功');
+        //             location.reload();
+        //         }
+        //     })
+        // })
+        
+    </script>
+</body>
+
+</html>
